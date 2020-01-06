@@ -1,0 +1,9 @@
+#dealApp{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+    grid-gap: 20px;
+}
+
+.gridItem{
+    background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+}

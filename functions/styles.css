@@ -1,0 +1,78 @@
+
+
+.topHeader{
+  display: grid;
+  grid-template-rows: [top-menu] 40px [banner-menu] 200px [main-menu] 80px [bottom-header];
+  grid-template-areas:
+  "top-menu"
+  "banner-menu"
+  "main-menu"
+}
+
+.top-menu{
+  background: lightcyan;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 40px 40px 40px 40px;
+  z-index: 99;
+}
+.banner-menu{
+  display: grid;
+  grid-template-columns: 1fr;
+  background: url("https://picsum.photos/1200/400");
+}
+
+.main-menu{
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(auto-fit, minmax(200, 1fr));
+}
+
+.menu-subitem {
+  display: none;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+
+}
+.show-subitem{
+  display: grid;
+  background: lightgray;
+  grid-auto-flow: row;
+}
+
+
+#getThis{
+
+    padding: 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+}
+.image {
+  /* transition: transform 2s; */
+}
+
+.image03 {
+  width: 150px;
+  transition: width 2s;
+}
+
+.image03:hover {
+/* transform: scaleX(2.2); */
+/* height: 300px; */
+width: 400px;
+transition: width 2s;
+/* transition: transform 2s; */
+
+}
+
+.image11 {
+  clip-path: circle(85%);
+  transition: clip-path 1.5s;
+}
+.image11:hover {
+  clip-path: circle(15%);
+}
