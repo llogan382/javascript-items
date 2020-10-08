@@ -1,0 +1,21 @@
+h2{
+    position: relative;
+    bottom: 200px;
+    display: flex;
+}
+
+.centered{
+    position: relative;
+    top: 215px;
+    transition: top 2s;
+}
+
+.notes{
+    height: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+
+li:hover>p.notes{
+    height: 100%;;
+}
