@@ -1,0 +1,14 @@
+#AddHere{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.content-card{
+    display: flex;
+    flex-direction: column;
+}
+
+img{
+    width: 100%;
+    object-fit: cover;
+}

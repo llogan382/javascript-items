@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>What to know about PHP oop?</h2>
+    <p>It allows for modular applications, and creting components which can be used over and over again. </p>
+    <p>Benefit? It is easier to maintain</p>
+    <p>Re-usable parts make the developer more productive</p>
+    <br>
+    <h3>What else?</h3>
+    <p><a href="https://carlalexander.ca/object-oriented-programming-next-step-wordpress-developer/">Here</a> is a great example of the benefits of OOP for Wordpress</p>
+
+
+    <h3>Ok, now what?</h3>
+    <p>A <strong>CLASS</strong>Has properties and functions which can be given visibility. There are 3 types:</p>
+    <ul>
+        <li>Private (visible only within the class)</li>
+        <li>Protected (accessible from within the defining class and its ancestor)</li>
+        <li>Public. You got it, EVERYWHERE</li>
+
+    </ul>
+
+
+
+    <p>FROM WITHIN A FUNCTION we can access a class properties by prepending the name with <code>$this-></code></p>
+
+
+    <div class="code">
+        <code>
+            class Person {
+                protected $name;
+
+                public function __construct($name) {
+                  $this->name = $name;
+                }
+
+                public function getIntroduction() {
+                  return sprintf(
+                    __('My name is %s'),
+                    $this->name
+                  );
+                }
+              }
+
+        </code>
+    </div>
+    <div class="comments">
+        Above: the "%s" refers to PHP returning a string;
+    </div>
+
+    <p>A class is instantiated through the NEW keyword; After that, the properties and functions can be accessed. </p>
+    <div class="code"><code>
+        $person = new Person('Pedro');
+        echo $person->getIntroduction();
+        // This prints "My name is Pedro"
+
+    </code></div>
+    <h3>PHP __construct</h3>
+    <p>What is it?</p>
+    <p>If you create a <code>__construct()</code> function, PHP will automatically call this function when you create an object from a class. </p>
+    <p>So, it saves us from calling the <code>set_name()</code> method that would have had to be used in the top</p>
+
+    <div class="review">REVIEW:
+        <ul>
+            <li>getters, setters: these are older methods used in PHP to GET and SET info for a class</li>
+            <li>__construct: calls the function automatically when an object is created, preventing the need for SETTERS in a class</li>
+        </ul>
+    </div>
+
+    <div><code>abstract</code>methods</div>
+    <p>Abstract methods MUST be implemented by an inheriting class. </p>
+    <p>ONLY the class IMPLEMENTING the abstract method can be instantiated:</p>
+    <div class="code"><code>
+        abstract class Person {
+
+            abstract public function getName();
+
+            public function getIntroduction() {
+              return sprintf(
+                __('My name is %s'),
+                $this->getName()
+              );
+            }
+          }
+          // Person cannot be instantiated
+
+          class Manuel extends Person {
+
+            public function getName() {
+              return 'Manuel';
+            }
+          }
+
+          // Manuel can be instantiated
+          $manuel = new Manuel();
+
+    </code></div>
+    <h3>STATIC methods</h3>
+    <p>Static lives under the class, and not under an INSTANTIATION</p>
+    <p>Use <code>self::</code> from within the class, and class + <code>::</code>outside of the class to access a STATIC method</p>
+    <div class="code"><code>
+        class Factory {
+
+            protected static $instances = [];
+            public static function registerInstance($handle, $instance) {
+              self::$instances[$handle] = $instance;
+            }
+            public static function getInstance($handle) {
+              return self::$instances[$handle];
+            }
+          }
+
+          $engine = Factory::getInstance('Engine');
+
+    </code></div>
+
+
+</body>
+</html>

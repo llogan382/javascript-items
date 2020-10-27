@@ -1,9 +1,35 @@
+body{
+    width: 800px;
+    margin: auto;
+}
+
 h2{
     position: relative;
     bottom: 200px;
     display: flex;
 }
 
+.code{
+    background: #f5f2f0;
+
+}
+code{
+    color: #000;
+text-shadow: 0 1px #fff;
+font-family: Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;
+text-align: left;
+white-space: pre;
+word-spacing: normal;
+word-break: normal;
+word-wrap: normal;
+line-height: 1.5;
+-moz-tab-size: 4;
+-o-tab-size: 4;
+tab-size: 4;
+-webkit-hyphens: none;
+-ms-hyphens: none;
+hyphens: none;
+}
 .centered{
     position: relative;
     top: 215px;

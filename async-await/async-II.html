@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>What is async?</h2>
+    <p>blocking: it stops all javascript until something else happens.</p>
+    <p>If there is a PROMISE, it will stop all other functions until the next step is handled</p>
+    <br>
+    <p>
+        This is bad for FLOW CONTROL
+    </p>
+<p>We need a way to wait, without STOPPING all JS functionality while waiting on one component of the JS application. </p>
+
+<p>First, make an ASYNC function. THEN, AWAIT the values. </p>
+<p>At its core, ASYNC/AWAIT is built on primises. </p>
+
+<div id="AddHere">
+
+
+</div>
+
+<script>
+
+var addToDom = document.getElementById('AddHere');
+
+async function showAvatar() {
+
+// read our JSON
+let response = await fetch('https://www.motortrend.com/wp-json/wp/v2/posts?_embed');
+let postsObj = await response.json();
+
+
+
+
+
+
+postsObj.map(getPostImgs);
+
+
+
+async function getPostImgs(post){
+featuredImg = post._embedded['wp:featuredmedia']['0'].source_url;
+addToDom.innerHTML += `
+<div class="content-card">
+<h2>${post.title.rendered}</h2>
+    <img src=${featuredImg} />
+    ${post.excerpt.rendered}
+    </div>
+</div>
+
+`;
+
+}
+// read github user
+// let postImgObj = await fetch(`https://www.motortrend.com/wp-json/wp/v2/media/${postsObj.featured_media}/source_url`);
+// let postImgRes = await postImgObj.json();
+
+
+
+
+}
+
+showAvatar();
+
+</script>
+</body>
+</html>

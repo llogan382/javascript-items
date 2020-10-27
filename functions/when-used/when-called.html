@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+Arrow functions:
+Advantages:
+1) Much more concise
+2) implicit returns
+3) doesnt re=bind value of "this"
+
+
+<div class="addScript">
+
+</div>
+
+    <script>
+
+        let addHere = document.querySelector('.addScript');
+        const names = ['Luke', 'Taylor', 'Rosie', 'Mercy'];
+
+        // const fullNames = names.map(function(name){
+        //     return `${name} Logan`;
+        // });
+
+        const fullNames2 = names.map((name) =>{
+          addHere.innerHTML += `${name} Logan </br>`;
+        });
+
+
+
+    </script>
+</body>
+</html>

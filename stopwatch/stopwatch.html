@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="button">
+
+            <div class="hr">0</div>:
+            <div class="min">0</div>:
+            <div class="ss">0</div>:
+            <div class="ms">0</div>
+        </div>
+        <p>Start</p>
+    </div>
+
+    <script>
+        //When clicking, add "running" class
+
+        var startStopBtn = document.querySelector('.button');
+
+
+        let hr = document.querySelector('.hr');
+        let min = document.querySelector('.min');
+        let ss = document.querySelector('.ss');
+        let ms = document.querySelector('.ms');
+
+        // When clicking, start timer. Run every 100ms;
+        startStopBtn.addEventListener('click', changeClass);
+
+        function changeClass(){
+            startStopBtn.classList.toggle('running');
+            setInterval(startTimer, 100);
+        }
+
+        function startTimer(){
+            var timer = parseInt(ms.textContent);
+
+            ms.textContent = timer + 1;
+        }
+
+        //Add the values for each section
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
